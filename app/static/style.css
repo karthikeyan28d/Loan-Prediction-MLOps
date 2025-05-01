@@ -1,0 +1,124 @@
+/* Set full-page background */
+body {
+    background: url("../static/bg.jpg") repeat-x right center fixed;
+    background-size: contain;
+    font-family: "Inter", sans-serif;
+}
+
+
+
+/* Centered container with transparency */
+.container {
+    background: rgba(255, 255, 255, 0.50); /* Slight transparency */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%; /* Reduced width */
+    min-width: 500px; /* Ensure it does not become too small */
+    margin: auto; /* Center horizontally */
+    margin-top: 30px;
+}
+.card {
+    max-width: 70%;
+    margin: auto;
+    border-radius: 10px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.50); /* Increased transparency */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Softer shadow */
+}
+.mt-5 {
+    margin-top: 3rem !important;
+    width: 60%;
+}
+/* Header styling */
+.header-box {
+    background: #007bff;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+
+
+
+h2 {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 25px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #007bff;
+}
+
+.row {
+    margin-top: 15px;
+    padding: 5px 0;
+}
+
+.form-control, .form-select {
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    font-size: 18px;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+.header-box {
+    background: #bdb32c; /* Primary blue background */
+    color: white; /* White text */
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px; /* Curved corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    margin-bottom: 20px;
+}
+/* Styling the prediction message */
+#result {
+    font-size: 22px; /* Increase size */
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* High-Risk Message */
+.high-risk {
+    color: #D72638; /* Red from car */
+    background-color: rgba(215, 38, 56, 0.1); /* Soft red background */
+}
+
+/* Low-Risk Message */
+.low-risk {
+    color: #007bff; /* Blue from background */
+    background-color: rgba(0, 123, 255, 0.1); /* Soft blue background */
+}
+.info-icon {
+    font-size: 14px;
+    color: #007bff; /* Blue tooltip icon */
+    cursor: pointer;
+    margin-left: 5px;
+    font-weight: bold;
+    display: inline-block;
+    border: 1px solid #007bff;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    line-height: 16px;
+}
+

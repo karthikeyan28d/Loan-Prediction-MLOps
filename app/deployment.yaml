@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nbfi-loan-app
+spec:
+  replicas: 2  # Adjust based on load
+  selector:
+    matchLabels:
+      app: nbfi-loan-app
+  template:
+    metadata:
+      labels:
+        app: nbfi-loan-app
+    spec:
+      containers:
+        - name: nbfi-loan-container
+          image: nbfiloanacr.azurecr.io/nbfi-loan-app:v1  # Update with your image path
+          ports:
+            - containerPort: 5000
+          envFrom:
+            - secretRef:
+                name: nbfi-env-secret  

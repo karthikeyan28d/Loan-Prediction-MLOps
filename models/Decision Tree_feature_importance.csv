@@ -1,0 +1,30 @@
+Feature,Importance
+Score_Source_2,0.36862592814813494
+Score_Source_3,0.3557806685536732
+Employed_Years,0.040932798171573546
+Car_Owned,0.0
+Annuity_Income_Ratio,0.044180635693336835
+ID_Years,0.0059597250849891216
+Credit_to_Age_Ratio,0.02550778661371741
+Phone_Change,0.03867212286998377
+Age_Years,0.016776410390680473
+Loan_Duration,0.047671709509270764
+House_Own,0.0
+Client_Gender_Male,0.010016111332617482
+Client_Education_Graduation dropout,0.0
+Client_Education_Junior secondary,0.0
+Client_Education_Secondary,0.0395891537828044
+Loan_Contract_Type_RL,0.0
+Client_Permanent_Match_Tag_Yes,0.0029732175416992824
+Client_Income_Type_Govt Job,0.0
+Client_Income_Type_Other,0.0
+Client_Income_Type_Retired,0.0
+Client_Income_Type_Service,0.0
+Client_Housing_Type_Home,0.0
+Client_Housing_Type_Municipal,0.0033137323075187676
+Client_Housing_Type_Office,0.0
+Client_Housing_Type_Rental,0.0
+Client_Housing_Type_Shared,0.0
+Client_Marital_Status_M,0.0
+Client_Marital_Status_S,0.0
+Client_Marital_Status_W,0.0

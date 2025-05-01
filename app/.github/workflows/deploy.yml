@@ -1,0 +1,49 @@
+name: CI/CD Pipeline with ML Model Update
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  retrain:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Log in to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Run Model Training Script
+        run: python az-model-notebooks/2.1 model_training.ipynb  # Runs the script to train & register model
+
+  build:
+    needs: retrain
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Log in to ACR
+        run: az acr login --name ${{ secrets.ACR_NAME }}
+
+      - name: Build Docker Image with New Model
+        run: |
+          docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/loan-defaulter-app:latest .
+          docker push ${{ secrets.ACR_LOGIN_SERVER }}/loan-defaulter-app:latest
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log in to AKS
+        run: |
+          az aks get-credentials --resource-group ${{ secrets.RESOURCE_GROUP }} --name ${{ secrets.CLUSTER_NAME }}
+
+      - name: Deploy Updated Image
+        run: |
+          kubectl set image deployment/loan-defaulter-app loan-defaulter-container=${{ secrets.ACR_LOGIN_SERVER }}/loan-defaulter-app:latest
+          kubectl rollout status deployment/loan-defaulter-app

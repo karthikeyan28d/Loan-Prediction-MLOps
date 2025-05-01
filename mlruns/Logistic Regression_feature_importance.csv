@@ -1,0 +1,30 @@
+Feature,Importance
+Score_Source_3,2.3131105174933166
+Score_Source_2,1.6580012258049108
+Client_Education_Secondary,0.4206152464856166
+Cleint_City_Rating,0.28998395229985513
+Client_Gender_Male,0.2850446468744295
+Car_Owned,0.18410259932563916
+Loan_Contract_Type_RL,0.16996212290220356
+Client_Income_Type_Retired,0.15004471218789361
+Client_Income_Type_Service,0.06501033370867061
+Credit_Bureau,0.018120518447629987
+House_Own,0.016610695905589112
+Loan_Annuity,0.00011321245265317465
+Phone_Change,0.00010318799871497499
+Employed_Days,5.337168547514301e-05
+ID_Days,4.0946399533413776e-05
+Client_Income,6.91334642294673e-06
+Age_Days,2.934817735328617e-06
+Credit_Amount,2.4149856635402803e-06
+Client_Housing_Type_Home,0.0
+Client_Housing_Type_Rental,0.0
+Client_Housing_Type_Office,0.0
+Client_Housing_Type_Municipal,0.0
+Client_Housing_Type_Shared,0.0
+Client_Income_Type_Govt Job,0.0
+Client_Education_Junior secondary,0.0
+Client_Education_Graduation dropout,0.0
+Client_Income_Type_Other,0.0
+Active_Loan,0.0
+Client_Permanent_Match_Tag_Yes,0.0

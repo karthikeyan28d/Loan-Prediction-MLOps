@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+   
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Default Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+     <!-- Include Bootstrap CSS for Tooltips -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="card p-4 shadow-lg">
+
+            <div>
+                <div class="header-box">
+                    <h2 class="mb-0">Vehicle Loan Default Predictor</h2>
+                </div>
+            </div>
+            
+            <form id="prediction-form">
+
+
+                <!-- ID Field -->
+                <h4 class="section-title">Client Identification</h4>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Client ID:</label>
+                        <input type="number" name="id" class="form-control" required>
+                    </div>
+                </div>
+
+                <!-- Loan Details -->
+                <h4 class="section-title">Loan Details</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Credit Amount:</label>
+                        <input type="number" name="credit_amount" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Client Income:</label>
+                        <input type="number" name="client_income" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Loan Annuity:
+                            <span class="info-icon" data-bs-toggle="tooltip" title="Fixed periodic payments made by the client to repay the loan.">?</span>
+                        </label>
+                        <input type="number" name="loan_annuity" class="form-control" required>
+                    </div>
+                </div>
+
+                <!-- Personal & Employment Info -->
+                <h4 class="section-title">Personal & Employment Info</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Age (Years):</label>
+                        <input type="number" name="age_years" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Employed Years:</label>
+                        <input type="number" name="employed_years" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Registration Years:
+                            <span class="info-icon" data-bs-toggle="tooltip" title="Number of years since the client’s financial record registration.">?</span>
+                        </label>
+                        <input type="number" name="registration_years" class="form-control" required>
+                    </div>
+                </div>
+
+                <!-- Household & Loan Status -->
+                <h4 class="section-title">Household & Loan Status</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Years of Residence:</label>
+                        <input type="number" name="ID_Years" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Family Members:</label>
+                        <input type="number" name="family_members" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label>House Owned:</label>
+                        <select name="house_own" class="form-select">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Client & Financial Information -->
+                <h4 class="section-title">Client & Financial Information</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Car Owned:</label>
+                        <select name="car_owned" class="form-select">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Active Loan:</label>
+                        <select name="active_loan" class="form-select">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Income Type:</label>
+                        <select name="client_income_type" class="form-select">
+                            <option value="Service">Service</option>
+                            <option value="Commercial">Commercial</option>
+                            <option value="Retired">Retired</option>
+                            <option value="Govt Job">Govt Job</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Education, Marital Status, Gender -->
+                <h4 class="section-title">Education & Demographics</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Education:</label>
+                        <select name="client_education" class="form-select">
+                            <option value="Secondary">Secondary</option>
+                            <option value="Graduation">Graduation</option>
+                            <option value="Junior secondary">Junior secondary</option>
+                            <option value="Graduation dropout">Graduation dropout</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Marital Status:</label>
+                        <select name="client_marital_status" class="form-select">
+                            <option value="M">Married</option>
+                            <option value="S">Single</option>
+                            <option value="D">Divorced</option>
+                            <option value="W">Widow</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Gender:</label>
+                        <select name="client_gender" class="form-select">
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Loan & Housing Type -->
+                <h4 class="section-title">Loan & Housing</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Loan Contract Type:</label>
+                        <select name="loan_contract_type" class="form-select">
+                            <option value="CL">Cash</option>
+                            <option value="RL">Revolving</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Housing Type:</label>
+                        <select name="client_housing_type" class="form-select">
+                            <option value="Shared">Shared</option>
+                            <option value="Home">Home</option>
+                            <option value="Family">Family</option>
+                            <option value="Rental"> Rental</option>
+                            <option value="Municipal">Municipal</option>
+                            <option value="Office">Office</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label>City Rating:
+                            <span class="info-icon" data-bs-toggle="tooltip" title="Risk rating of the city where the client resides (higher rating means lower risk).">?</span>
+                        </label>
+                        <input type="number" name="client_city_rating" class="form-control" required>
+                    </div>
+                </div>
+
+                <!-- Risk Factors -->
+                <h4 class="section-title">Risk Factors</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Permanent Match Tag:
+                            <span class="info-icon" data-bs-toggle="tooltip" title="Indicates if the client has a stable, permanent residence.">?</span>
+                        </label>
+                        <select name="client_permanent_match_tag" class="form-select">
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Credit Bureau Score:
+                            <span class="info-icon" data-bs-toggle="tooltip" title="Client’s credit score from an external credit bureau (higher is better).">?</span>
+                        </label>
+                        <input type="number" name="score_source_2" step="0.01" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Risk Evaluation Score:
+                            <span class="info-icon" data-bs-toggle="tooltip" title="An external risk evaluation score (lower score means higher risk).">?</span>
+                        </label>
+                        <input type="number" name="score_source_3" step="0.01" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-4">
+                        <label>Phone Change:
+                            <span class="info-icon" data-bs-toggle="tooltip" title="Number of times the client has changed their phone number in the last two years.">?</span>
+                        </label>
+                        <input type="number" name="phone_change" class="form-control" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3 w-100">Predict</button>
+            </form>
+            
+            <h3 id="result" class="text-center mt-4"></h3>
+        </div>
+    </div>
+        <!-- Bootstrap Tooltip Initialization -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // Activate Bootstrap tooltips
+            document.addEventListener("DOMContentLoaded", function() {
+                var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+                var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                    return new bootstrap.Tooltip(tooltipTriggerEl);
+                });
+            });
+        </script>
+
+    <!-- <script>
+        document.getElementById("prediction-form").onsubmit = async function(event) {
+            event.preventDefault();
+            let formData = new FormData(event.target);
+
+            let response = await fetch("/predict", {
+                method: "POST",
+                body: formData
+            });
+
+            let data = await response.json();
+            document.getElementById("result").innerText = data.prediction;
+        };
+    </script> -->
+
+<script>
+    document.getElementById("prediction-form").onsubmit = async function(event) {
+        event.preventDefault();
+        let formData = new FormData(event.target);
+
+        let response = await fetch("/predict", {
+            method: "POST",
+            body: formData
+        });
+
+        let data = await response.json();
+        let resultElement = document.getElementById("result");
+
+        // Update text and apply class for styling
+        resultElement.innerText = data.prediction;
+        resultElement.classList.remove("low-risk", "high-risk"); // Reset classes
+
+        if (data.prediction.includes("High Risk")) {
+            resultElement.classList.add("high-risk"); // Red for high risk
+        } else {
+            resultElement.classList.add("low-risk"); // Blue for low risk
+        }
+    };
+</script>
+
+
+</body>
+</html>
