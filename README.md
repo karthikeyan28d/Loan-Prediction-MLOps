@@ -108,7 +108,5 @@ The **CI/CD pipeline automates model deployment** when new code is pushed to Git
 This project demonstrates a **fully automated ML pipeline** from **data ingestion to model deployment** with **Azure services**. It ensures **scalability, security, and automation** for real-world financial applications.
 
 ---
-**Authors:** [Rohit Kosamkar]
 
-📌 **Repository**: [GitHub Repo](https://github.com/rohit180497/NBFI-Loan-Repayment)
 
